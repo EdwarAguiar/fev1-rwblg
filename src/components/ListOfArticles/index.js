@@ -10,7 +10,6 @@ export const ListOfArticles = () => {
 
   console.log("La Data", data)
 
-
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
