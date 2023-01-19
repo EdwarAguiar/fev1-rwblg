@@ -40,7 +40,7 @@ export const ListOfArticles = () => {
   // const { loading, error, data } = useFetch('http://localhost:1337/api/reviews?populate=*')
   const { loading, error, data } = useQuery(REVIEWS)
 
-  console.log("La Data", data)
+  // console.log("La Data", data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
@@ -49,7 +49,7 @@ export const ListOfArticles = () => {
     <List>
       {
         data.reviews.data.map(article => <Item key={article.id}> <ArticleCard
-          id={article.attributes.id}
+          id={article.id}
           title={article.attributes.title}
           rating={article.attributes.rating}
           body={article.attributes.body}

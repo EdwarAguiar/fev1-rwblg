@@ -1,12 +1,48 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetch } from '../../hooks/useFetch'
+// import { useFetch } from '../../hooks/useFetch'
+import { useQuery, gql } from '@apollo/client'
 import { ArticleCard } from '../ArticleCard'
 import { List, Item } from './styles'
 
+const CATEGORY = gql`
+query GetCategory($id: ID!) {
+  category(id: $id) {
+    data {
+      id,
+      attributes{
+        name,
+        reviews {
+          data {
+            id,
+            attributes {
+              title,
+              rating,
+              body,
+              image {
+                data {
+                  id,
+                  attributes {
+                    name,
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
 export const ListOfArticlesFBC = () => {
   const { id } = useParams()
-  const { loading, error, data } = useFetch(`http://localhost:1337/api/categories/${id}?populate=*`)
+  // const { loading, error, data } = useFetch(`http://localhost:1337/api/categories/${id}?populate=*`)
+  const { loading, error, data } = useQuery(CATEGORY, {
+    variables: { id: id }
+  })
 
   console.log("La Data FBC", data)
 
@@ -14,19 +50,19 @@ export const ListOfArticlesFBC = () => {
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
-    // <List>
-    //   {
-    //     data.data.attributes.reviews.data.map(article => <Item key={data.data.attributes.reviews.data.id}> <ArticleCard
-    //       id={data.data.attributes.reviews.data.id}
-    //       title={article.attributes.tittle}
-    //       rating={article.attributes.rating}
-    //       body={article.attributes.body}
-    //       picture={article.attributes.image.data.attributes.url}
-    //       categories={article.attributes.categories}
-    //     />
-    //     </Item>)
-    //   }
-    // </List>
-    <h2>Testing</h2>
+    <List>
+      {
+        data.category.data.attributes.reviews.data.map(article => <Item key={article.id}> <ArticleCard
+          id={article.id}
+          title={article.attributes.tittle}
+          rating={article.attributes.rating}
+          body={article.attributes.body}
+          picture={article.attributes.image.data.attributes.url}
+          categories={data.category.}
+        />
+        </Item>)
+      }
+    </List>
+    // <h2>Testing</h2>
   )
 }

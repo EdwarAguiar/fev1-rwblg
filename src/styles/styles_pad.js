@@ -17,7 +17,7 @@ export const Image = styled.img`
   object-fit: cover;
   /* height: 255px; */
   height: 255px;
-  width: 255px;
+  width: auto;
   /* transform: scale(0.70); */
 `
 export const ArticleWrapper = styled.div`
