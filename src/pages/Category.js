@@ -1,7 +1,8 @@
 import React from 'react'
+import { ListOfArticlesFBC } from '../components/ListOfArticlesFBC'
 
 export const Category = () => {
   return (
-    <h2>Articles by Category</h2>
+    <ListOfArticlesFBC />
   )
 }

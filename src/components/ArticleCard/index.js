@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Anchor, Card, Parrafo, CardWrapper, RatingCard, Rating, Cat, Image } from './styles'
+import { Link, Card, Parrafo, CardWrapper, RatingCard, Rating, Cat, Image } from './styles'
 
-//const DEFAULT_IMAGE = 'https://i.imgur.com/dJa0Hpl.jpg'
 const BASEURL = 'http://localhost:1337'
 
 export const ArticleCard = ({ id, title, rating, body, categories, picture }) => (

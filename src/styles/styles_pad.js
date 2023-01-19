@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link as LinkRouter } from 'react-router-dom'
 
 export const Anchor = styled.a`
   display: flex;
@@ -55,4 +56,8 @@ export const Parrafo = styled.p`
 export const Cat = styled.small`
   margin-right: 10px;
   color: #777;
+`
+export const Link = styled(LinkRouter)`
+  text-decoration: none;
+  color: #8e2ad6;
 `

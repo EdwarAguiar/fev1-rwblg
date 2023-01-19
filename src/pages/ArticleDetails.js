@@ -1,14 +1,14 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
-import { Anchor, Article, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image } from '../styles/styles_pad'
+import { Link, Article, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image } from '../styles/styles_pad'
 
 export const ArticleDetails = () => {
   const { id } = useParams()
   const { loading, error, data } = useFetch(`http://localhost:1337/api/reviews/${id}?populate=*`)
   const BASEURL = 'http://localhost:1337'
 
-  //console.log("Nivel Detail", data)
+  // console.log("Nivel Detail", data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
