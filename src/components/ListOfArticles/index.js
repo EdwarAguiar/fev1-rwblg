@@ -4,16 +4,25 @@ import { ArticleCard } from '../ArticleCard'
 import { List, Item } from './styles'
 import { useQuery, gql } from '@apollo/client'
 
-const REVIEWS = gql`
-query GetReviews {
-  reviews {
+const ARTICLES = gql`
+query GetArticles {
+  articles {
     data {
       id,
       attributes{
         title,
         rating,
         body,
-        image {
+        image_n1 {
+          data {
+            id,
+            attributes {
+              name,
+              url
+            }
+          }
+        }
+        image_n2 {
           data {
             id,
             attributes {
@@ -37,8 +46,8 @@ query GetReviews {
 `
 
 export const ListOfArticles = () => {
-  // const { loading, error, data } = useFetch('http://localhost:1337/api/reviews?populate=*')
-  const { loading, error, data } = useQuery(REVIEWS)
+  // const { loading, error, data } = useFetch('http://localhost:1337/api/articles?populate=*')
+  const { loading, error, data } = useQuery(ARTICLES)
 
   // console.log("La Data", data)
 
@@ -48,13 +57,13 @@ export const ListOfArticles = () => {
   return (
     <List>
       {
-        data.reviews.data.map(article => <Item key={article.id}> <ArticleCard
-          id={article.id}
-          title={article.attributes.title}
-          rating={article.attributes.rating}
-          body={article.attributes.body}
-          picture={article.attributes.image.data.attributes.url}
-          categories={article.attributes.categories}
+        data.articles.data.map(art => <Item key={art.id}> <ArticleCard
+          id={art.id}
+          title={art.attributes.title}
+          rating={art.attributes.rating}
+          body={art.attributes.body}
+          picture={art.attributes.image_n1.data.attributes.url}
+          categories={art.attributes.categories}
         />
         </Item>)
       }

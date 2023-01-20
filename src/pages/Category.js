@@ -12,20 +12,30 @@ query GetCategory($id: ID!) {
       id,
       attributes{
         name,
-        reviews {
+        articles {
           data {
             id,
             attributes {
               title,
               rating,
               body,
-              image {
+              image_n1 {
                 data {
                   id,
                   attributes {
                     name,
                     url
                   }
+                }
+              }
+              image_n2 {
+                data {
+                  id,
+                  attributes {
+                    name,
+                    url
+                  }
+                  
                 }
               }
               categories {
@@ -59,15 +69,15 @@ export const Category = () => {
   return (
     <ul>
       {
-        data.category.data.attributes.reviews.data.map((review) => (
-          <li key={review.id}>
+        data.category.data.attributes.articles.data.map((art) => (
+          <li key={art.id}>
             <ArticleCard
-              id={review.id}
-              title={review.attributes.title}
-              rating={review.attributes.rating}
-              body={review.attributes.body.substring(0, 380) + '...'}
-              picture={review.attributes.image.data.attributes.url}
-              categories={review.attributes.categories}
+              id={art.id}
+              title={art.attributes.title}
+              rating={art.attributes.rating}
+              body={art.attributes.body.substring(0, 380) + '...'}
+              picture={art.attributes.image_n1.data.attributes.url}
+              categories={art.attributes.categories}
             />
           </li>
         ))

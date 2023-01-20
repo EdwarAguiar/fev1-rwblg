@@ -16,7 +16,7 @@ export const SiteHeader = () => {
     <div>
       <Link to='/'><Title>TIRAMUTO Blog</Title></Link>
       <Categories>
-        <span>Filter Reviews by Categroy:</span>
+        <span>Filter Articles by Categroy:</span>
         {data.data.map(category => (
           <Link key={category.id} to={`/category/${category.id}`}>{category.attributes.name}</Link>
         ))}
