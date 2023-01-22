@@ -19,6 +19,8 @@ export const Image = styled.img`
   height: 255px;
   width: auto;
   /* transform: scale(0.70); */
+  margin-top: 10px;
+  margin-bottom: 20px;
 `
 export const ArticleWrapper = styled.div`
   background: white;
@@ -33,12 +35,14 @@ export const Article = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding-bottom: 10px;
 `
 export const RatingCard = styled.div`
   position: absolute;
   top: -20px;
   left: -20px;
-  background: #8e2ad6;
+  /* background: #8e2ad6; */
+  background: #004ca4;
   font-size: 3em;
   width: 90px;
   height: 90px;
@@ -57,7 +61,39 @@ export const Cat = styled.small`
   margin-right: 10px;
   color: #777;
 `
+
+export const ButtonWrapper = styled.div`
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+`
+
+export const ArticleButton = styled.div`
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  /* border: 1px solid #8e2ad6; */
+  border: 1px solid #004ca4; 
+  background-color: #004ca4;
+  height: auto;
+  width: 100px;
+  padding: 5px;
+`
 export const Link = styled(LinkRouter)`
   text-decoration: none;
-  color: #8e2ad6;
+  color: white;
+  background-color: #004ca4;
+  /* color: black; */
+  /* color: #8e2ad6; */
+  /* margin-top: 20px; */
+`
+export const AutorWrapper = styled.div`
+  display: flex;
+  border-top: 1px solid #cdd2da;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: flex-end;
 `

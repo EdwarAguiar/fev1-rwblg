@@ -1,8 +1,13 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
+import ReactMarkdown from 'react-markdown'
 // import { useFetch } from '../hooks/useFetch'
-import { Link, Article, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image } from '../styles/styles_pad'
+
+import { Link, Article, ButtonWrapper, ArticleButton, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image, AutorWrapper } from '../styles/styles_pad'
+
+const AUTOR = 'Edwar Aguiar'
+const PDATE = '1/22/2023'
 
 const ARTICLE = gql`
 query GetArticle($id: ID!) {
@@ -68,9 +73,24 @@ export const ArticleDetails = () => {
       ))}
       <Article>
         <Image src={BASEURL + data.article.data.attributes.image_n2.data.attributes.url} alt='Photo Article' />
-        <Parrafo>{data.article.data.attributes.body}...</Parrafo>
+        {/* <Parrafo>{data.article.data.attributes.body}...</Parrafo> */}
+        {/* <ReactMarkdown escapeHtml={false} children={data.article.data.attributes.body} /> */}
+        {/* <Parrafo> */}
+        <ReactMarkdown escapeHtml={false}>
+          {data.article.data.attributes.body}
+        </ReactMarkdown>
+        {/* </Parrafo> */}
       </Article>
-      <Link to='/'>Return</Link>
+      <AutorWrapper>
+        <p>
+          {`Autor: ${AUTOR} - Fecha de Publicacion: ${PDATE}`}
+        </p>
+      </AutorWrapper>
+      <ButtonWrapper>
+        <ArticleButton>
+          <Link to='/'>Return</Link>
+        </ArticleButton>
+      </ButtonWrapper>
     </ArticleWrapper>
   )
 }

@@ -35,7 +35,8 @@ export const RatingCard = styled.div`
   position: absolute;
   top: -20px;
   left: -20px;
-  background: #8e2ad6;
+  /* background: #8e2ad6; */
+  background: #004ca4;
   font-size: 3em;
   width: 90px;
   height: 90px;
@@ -45,7 +46,7 @@ export const RatingCard = styled.div`
 export const Rating = styled.h2`
   margin-bottom: 0;
 `
-export const Parrafo = styled.p`
+export const Parrafo = styled.div`
   width: 75%;
 `
 export const Cat = styled.small`
@@ -54,5 +55,20 @@ export const Cat = styled.small`
 `
 export const Link = styled(LinkRouter)`
   text-decoration: none;
-  color: #8e2ad6;
+  /* color: #8e2ad6; */
+  /* color: black; */
+  color: white;
+  background-color: #004ca4;
+`
+
+export const CardButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* border: 1px solid #8e2ad6; */
+  border: 1px solid #004ca4;
+  background-color: #004ca4;
+  width: 120px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `
