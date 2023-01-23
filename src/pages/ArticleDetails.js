@@ -2,12 +2,12 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import ReactMarkdown from 'react-markdown'
+import Moment from 'react-moment'
+import moment from 'moment'
 // import { useFetch } from '../hooks/useFetch'
 
 import { Link, Article, ButtonWrapper, ArticleButton, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image, AutorWrapper } from '../styles/styles_pad'
-
-const AUTOR = 'Edwar Aguiar'
-const PDATE = '1/22/2023'
+// const PDATE = '1/22/2023'
 
 const ARTICLE = gql`
 query GetArticle($id: ID!) {
@@ -18,6 +18,7 @@ query GetArticle($id: ID!) {
         title,
         rating,
         body,
+        publishedAt,
         image_n1 {
           data {
             id,
@@ -40,6 +41,14 @@ query GetArticle($id: ID!) {
           data {
             id,
             attributes{
+              name
+            }
+          }
+        }
+        writer {
+          data {
+            id,
+            attributes {
               name
             }
           }
@@ -73,17 +82,14 @@ export const ArticleDetails = () => {
       ))}
       <Article>
         <Image src={BASEURL + data.article.data.attributes.image_n2.data.attributes.url} alt='Photo Article' />
-        {/* <Parrafo>{data.article.data.attributes.body}...</Parrafo> */}
-        {/* <ReactMarkdown escapeHtml={false} children={data.article.data.attributes.body} /> */}
-        {/* <Parrafo> */}
         <ReactMarkdown escapeHtml={false}>
           {data.article.data.attributes.body}
         </ReactMarkdown>
-        {/* </Parrafo> */}
       </Article>
       <AutorWrapper>
         <p>
-          {`Autor: ${AUTOR} - Fecha de Publicacion: ${PDATE}`}
+          {`Autor: ${data.article.data.attributes.writer.data.attributes.name} `}
+          - Fecha de Publicacion: {moment(data.article.data.attributes.publishedAt).format('DD/MM/YYYY')}
         </p>
       </AutorWrapper>
       <ButtonWrapper>
