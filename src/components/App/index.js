@@ -1,19 +1,22 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { SiteHeader } from '../../components/SiteHeader'
+import { Logo } from '../../components/Logo'
+
 import { GlobalStyle } from '../../styles/GlobalStyles'
 import { Homepage } from '../../pages/Homepage'
 import { Category } from '../../pages/Category'
 import { ArticleDetails } from '../../pages/ArticleDetails'
+import { Photopage } from '../../pages/Photopage'
 import { Notfound } from '../../pages/Notfound'
 
 export const App = () => (
   <div>
     <BrowserRouter>
       <GlobalStyle />
-      <SiteHeader />
+      <Logo />
       <Routes>
         <Route path='/' element={<Homepage />} />
+        <Route path='/photos' element={<Photopage />} />
         <Route path='/details/:id' element={<ArticleDetails />} />
         <Route path='/category/:id' element={<Category />} />
         <Route path='*' element={<Notfound />} />

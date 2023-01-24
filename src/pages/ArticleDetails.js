@@ -1,13 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
+import { SiteHeader } from '../components/SiteHeader'
 import ReactMarkdown from 'react-markdown'
-import Moment from 'react-moment'
 import moment from 'moment'
 // import { useFetch } from '../hooks/useFetch'
 
 import { Link, Article, ButtonWrapper, ArticleButton, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image, AutorWrapper } from '../styles/styles_pad'
-// const PDATE = '1/22/2023'
 
 const ARTICLE = gql`
 query GetArticle($id: ID!) {
@@ -74,29 +73,33 @@ export const ArticleDetails = () => {
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
-    <ArticleWrapper>
-      <RatingCard><Rating>{data.article.data.attributes.rating}</Rating></RatingCard>
-      <h2>{data.article.data.attributes.title}</h2>
-      {data.article.data.attributes.categories.data.map(category => (
-        <Cat key={category.id}>{category.attributes.name}</Cat>
-      ))}
-      <Article>
-        <Image src={BASEURL + data.article.data.attributes.image_n2.data.attributes.url} alt='Photo Article' />
-        <ReactMarkdown escapeHtml={false}>
-          {data.article.data.attributes.body}
-        </ReactMarkdown>
-      </Article>
-      <AutorWrapper>
-        <p>
-          {`Autor: ${data.article.data.attributes.writer.data.attributes.name} `}
-          - Fecha de Publicacion: {moment(data.article.data.attributes.publishedAt).format('DD/MM/YYYY')}
-        </p>
-      </AutorWrapper>
-      <ButtonWrapper>
-        <ArticleButton>
-          <Link to='/'>Return</Link>
-        </ArticleButton>
-      </ButtonWrapper>
-    </ArticleWrapper>
+    <>
+      <SiteHeader />
+      <ArticleWrapper>
+        <RatingCard><Rating>{data.article.data.attributes.rating}</Rating></RatingCard>
+        <h2>{data.article.data.attributes.title}</h2>
+        {data.article.data.attributes.categories.data.map(category => (
+          <Cat key={category.id}>{category.attributes.name}</Cat>
+        ))}
+        <Article>
+          <Image src={BASEURL + data.article.data.attributes.image_n2.data.attributes.url} alt='Photo Article' />
+          <ReactMarkdown escapeHtml={false}>
+            {data.article.data.attributes.body}
+          </ReactMarkdown>
+        </Article>
+        <AutorWrapper>
+          <p>
+            {`Autor: ${data.article.data.attributes.writer.data.attributes.name} `}
+            - Fecha de Publicacion: {moment(data.article.data.attributes.publishedAt).format('DD/MM/YYYY')}
+          </p>
+        </AutorWrapper>
+        <ButtonWrapper>
+          <ArticleButton>
+            <Link to='/'>Return</Link>
+          </ArticleButton>
+        </ButtonWrapper>
+      </ArticleWrapper>
+
+    </>
   )
 }

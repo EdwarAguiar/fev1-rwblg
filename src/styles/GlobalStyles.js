@@ -47,7 +47,11 @@ export const GlobalStyle = createGlobalStyle`
     margin: 10px auto;
     width: 100%;
     max-width: 1200px;
-    padding: 20px;
+    /* padding: 20px; */
+    padding-top: 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
   }
 `
