@@ -66,7 +66,7 @@ export const ArticleDetails = () => {
   })
   const BASEURL = 'http://localhost:1337'
 
-  console.log('Nivel Detail', data)
+  //console.log('Nivel Detail', data)
   // console.log("El Titulo", data.article.data.attributes.title)
 
   if (loading) return <p>Loading...!</p>

@@ -7,6 +7,8 @@ import { Homepage } from '../../pages/Homepage'
 import { Category } from '../../pages/Category'
 import { ArticleDetails } from '../../pages/ArticleDetails'
 import { Photopage } from '../../pages/Photopage'
+import { PhotoDetails } from '../../pages/PhotoDetails'
+import { PhotosBCpage } from '../../pages/PhotosBCpage'
 import { Notfound } from '../../pages/Notfound'
 
 export const App = () => (
@@ -17,6 +19,8 @@ export const App = () => (
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/photos' element={<Photopage />} />
+        <Route path='/photodetails/:id' element={<PhotoDetails />} />
+        <Route path='/photocategories/:id' element={<PhotosBCpage />} />
         <Route path='/details/:id' element={<ArticleDetails />} />
         <Route path='/category/:id' element={<Category />} />
         <Route path='*' element={<Notfound />} />

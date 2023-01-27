@@ -1,9 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
+import { SiteHeader } from '../components/SiteHeader'
 import { ArticleCard } from '../components/ArticleCard'
-// import { ListOfArticlesFBC } from '../components/ListOfArticlesFBC'
-// import { useFetch } from '../../hooks/useFetch'
 
 const CATEGORY = gql`
 query GetCategory($id: ID!) {
@@ -61,13 +60,14 @@ export const Category = () => {
     variables: { id: id }
   })
 
-  console.log("La Data FBC", data)
+ // console.log("La Data FBC", data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
     <ul>
+      <SiteHeader />
       {
         data.category.data.attributes.articles.data.map((art) => (
           <li key={art.id}>
