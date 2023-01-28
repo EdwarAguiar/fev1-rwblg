@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Logo } from '../../components/Logo'
+import { NavBar } from '../../components/NavBar'
 
 import { GlobalStyle } from '../../styles/GlobalStyles'
 import { Homepage } from '../../pages/Homepage'
@@ -25,6 +26,7 @@ export const App = () => (
         <Route path='/category/:id' element={<Category />} />
         <Route path='*' element={<Notfound />} />
       </Routes>
+      <NavBar />
     </BrowserRouter>
   </div>
 )

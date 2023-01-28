@@ -36,22 +36,36 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 30px;
     font-family: "Poppins";
     background: #f1f1f1;
+
+    @media all and (max-width: 500px) {
+      margin: 0 10px;
+      font-family: "Poppins";
+      background: #f1f1f1;
+    } 
   }
 
   #app {
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    overflow-x: hidden;
-    min-height: 100vh;
-    padding-bottom: 10px; */
     font-size: 1.2em;
-    margin: 10px auto;
+    margin: 2px auto;
     width: 100%;
-    max-width: 1200px;
-    /* padding: 20px; */
-    padding-top: 0px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 500px;
     box-sizing: border-box;
+
+    @media all and (min-width: 1200px) {
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding-bottom: 10px; */
+      font-size: 1.2em;
+      margin: 10px auto;
+      width: 100%;
+      /* max-width: 1200px; Original value*/
+      max-width: 1200px;
+      padding-top: 0px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
   }
 `

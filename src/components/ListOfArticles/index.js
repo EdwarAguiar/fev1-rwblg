@@ -57,14 +57,15 @@ export const ListOfArticles = () => {
   return (
     <List>
       {
-        data.articles.data.map(art => <Item key={art.id}> <ArticleCard
-          id={art.id}
-          title={art.attributes.title}
-          rating={art.attributes.rating}
-          body={art.attributes.body}
-          picture={art.attributes.image_n1.data.attributes.url}
-          categories={art.attributes.categories}
-        />
+        data.articles.data.map(art => <Item key={art.id}> 
+          <ArticleCard
+            id={art.id}
+            title={art.attributes.title}
+            rating={art.attributes.rating}
+            body={art.attributes.body}
+            picture={art.attributes.image_n1.data.attributes.url}
+            categories={art.attributes.categories}
+          />
         </Item>)
       }
     </List>

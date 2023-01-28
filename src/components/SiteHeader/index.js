@@ -2,7 +2,7 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 import { useFetch } from '../../hooks/useFetch'
 
-import { Title, Categories, Link } from './styles'
+import { Title, FilterTitle, Categories, Link } from './styles'
 
 export const SiteHeader = () => {
   const { loading, error, data } = useFetch('http://localhost:1337/api/categories')
@@ -15,8 +15,10 @@ export const SiteHeader = () => {
   return (
     <div>
       <Link to='/'><Title>TIRAMUTO Blog</Title></Link>
-      <Categories>
+      <FilterTitle>
         <span>Filter Articles by Categroy:</span>
+      </FilterTitle>
+      <Categories>
         {data.data.map(category => (
           <Link key={category.id} to={`/category/${category.id}`}>{category.attributes.name}</Link>
         ))}
