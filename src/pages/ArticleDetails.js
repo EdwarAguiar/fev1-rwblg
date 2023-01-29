@@ -95,7 +95,7 @@ export const ArticleDetails = () => {
         </AutorWrapper>
         <ButtonWrapper>
           <ArticleButton>
-            <Link to='/'>Return</Link>
+            <Link to='/blog'>Return</Link>
           </ArticleButton>
         </ButtonWrapper>
       </ArticleWrapper>

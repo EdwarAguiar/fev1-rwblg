@@ -1,13 +1,16 @@
 import styled from 'styled-components'
+import { fadeIn } from '../../styles/animation'
 import { Link as LinkRouter } from 'react-router-dom'
 
-export const CardWrapper = styled.div`
+export const Article = styled.article`
   background: white;
   margin: 30px auto;
   padding: 1px 20px 20px 20px;
   position: relative;
+  min-height: 200px;
 
   @media all and (min-width: 1200px) {
+    min-height: 200px;
     background: white;
     margin: 60px auto;
     padding: 1px 20px 20px 90px;
@@ -50,7 +53,7 @@ export const Card = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media all and (max-width: 1000px) {
+  @media all and (max-width: 1200px) {
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
@@ -68,6 +71,7 @@ export const Anchor = styled.a`
 `
 
 export const Image = styled.img`
+  ${fadeIn()}
   border: 1px solid #ddd;
   box-shadow: 0px 10px 14px rgba(0, 0, 0, .2);
   overflow: hidden;

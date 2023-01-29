@@ -21,6 +21,5 @@ export const Item = styled.li`
 export const Link = styled(LinkRouter)`
   margin-left: 10px;
   text-decoration: none;
-  /* color: #8e2ad6; */
   color: #004ca4;
 `

@@ -57,7 +57,7 @@ export const ListOfArticles = () => {
   return (
     <List>
       {
-        data.articles.data.map(art => <Item key={art.id}> 
+        data.articles.data.map(art => <Item key={art.id}>
           <ArticleCard
             id={art.id}
             title={art.attributes.title}

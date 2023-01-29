@@ -31,7 +31,7 @@ export const ListOfPhotoCards = () => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(ALL_PHOTOS)
 
-  console.log('X-- TODO', data)
+  // console.log('X-- TODO', data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
