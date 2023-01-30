@@ -41,14 +41,15 @@ export const ListOfPhotoCategories = () => {
       {
         // [1, 2, 3, 4, 5, 6].map((pcategory) => <Item key={pcategory}> <PhotoCategory /> </Item>)
         data.photocategories.data.map(pcategory =>
-          <Link key={pcategory.id} to={`/photocategories/${pcategory.id}`}>
-            <Item>
-              <PhotoCategory
-                name={pcategory.attributes.name}
-                src={pcategory.attributes.src.data.attributes.url}
-              />
-            </Item>
-          </Link>
+          // <Link key={pcategory.id} to={`/photocategories/${pcategory.id}`}>
+          <Item key={pcategory.id}>
+            <PhotoCategory
+              name={pcategory.attributes.name}
+              src={pcategory.attributes.src.data.attributes.url}
+              path={`/photocategories/${pcategory.id}`}
+            />
+          </Item>
+          // </Link>
         )
       }
     </List>
