@@ -1,19 +1,32 @@
-import { gql, useMutation } from '@apollo/client'
+import React from 'react'
+// import { gql, useMutation } from '@apollo/client'
+
+import { Mutation } from '@apollo/client/react/components'
+import { gql } from '@apollo/client'
 
 const LIKE_PHOTO = gql`
-mutation updatePhoto($id: ID!) {
-    updatePhoto(id: $id, data: {liked: true }) {
-      data {
-        id
-        attributes {
-          liked,
-          nlikes
-        }
+mutation updatePhoto(
+  $id: ID!
+  $liked: Boolean!,
+  $nlikes: Long!,
+) {
+  updatePhoto(id: $id data: {liked: $liked, nlikes: $nlikes }) {
+    data {
+      id
+      attributes {
+        liked,
+        nlikes
       }
     }
   }
+}
 `
-export const ToggleLikeMutation = () => {
-  const [mutation, { data, loading, error }] = useMutation(LIKE_PHOTO)
-  return { mutation, loading, error }
+export const ToggleLikeMutation = ({ children }) => {
+  return (
+    <>
+      <Mutation mutation={LIKE_PHOTO}>
+        {children}
+      </Mutation>
+    </>
+  )
 }
