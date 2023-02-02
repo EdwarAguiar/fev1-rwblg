@@ -24,6 +24,9 @@ export const Button = styled.button`
   display: block;
   width: 100%;
   text-align: center;
+  &[disabled] {
+    opacity: .3;
+  }
 `
 export const Title = styled.h2`
   font-size: 16px;

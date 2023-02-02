@@ -13,6 +13,6 @@ mutation signup($username: String!,$email: String!,$password: String!) {
 `
 
 export const useRegisterMutation = () => {
-  const [registerMutation, { loading, error }] = useMutation(REGISTER)
-  return { registerMutation, loading, error }
+  const [registerMutation, { data, loading, error }] = useMutation(REGISTER)
+  return { registerMutation, data, loading, error }
 }
