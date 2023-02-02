@@ -8,7 +8,16 @@ import { App } from './components/App'
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'http://localhost:1337/graphql'
+    uri: 'http://localhost:1337/graphql',
+    request: operation => {
+      const token = window.sessionStorage.getItem('token')
+      const authorization = token ? `Bearer ${token}` : ''
+      operation.setContext({
+        headers: {
+          authorization
+        }
+      })
+    }
   })
 })
 

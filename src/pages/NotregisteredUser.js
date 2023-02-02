@@ -16,15 +16,22 @@ export const NotRegisteredUser = () => {
            const onSubmitReg = ({ email, password }) => {
              // console.log('Registrarse')
              const username = email.substring(0, email.indexOf('@'))
-             // console.log(`username: ${username} email:${email} - Pwd:${password}`)
              const variables = ({ username, email, password })
-             registerMutation({ variables }).then(activateAuth)
+             registerMutation({ variables }).then(({ data }) => {
+               console.log(data.register.jwt)
+               const { register: { jwt } } = data
+               activateAuth(jwt)
+             })
            }
 
            const onSubmitLog = ({ email, password }) => {
              // console.log('Iniciar session')
              const variables = ({ email, password })
-             loginMutation({ variables }).then(activateAuth)
+             loginMutation({ variables }).then(({ data }) => {
+               // console.log(data.login.jwt)
+               const { login: { jwt } } = data
+               activateAuth(jwt)
+             })
            }
 
            const errorMsgReg = errorReg && 'El usuario ya existe o hay algun problema'
