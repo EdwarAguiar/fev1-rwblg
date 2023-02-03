@@ -32,7 +32,7 @@ export const App = () => {
         <Route path='/photocategories/:id' element={<PhotosBCpage />} />
         <Route path='/details/:id' element={<ArticleDetails />} />
         <Route path='/category/:id' element={<Category />} />
-        <Route path='/favs' element={isAuth ? <Favs /> : <NotRegisteredUser />} />
+        {/* <Route path='/favs' element={isAuth ? <Favs /> : <NotRegisteredUser />} /> */}
         <Route path='/user' element={isAuth ? <User /> : <NotRegisteredUser />} />
         <Route path='*' element={<Notfound />} />
       </Routes>

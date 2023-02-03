@@ -13,7 +13,7 @@ const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1
 const BASEURL = 'http://localhost:1337'
 
 export const PhotoCard = ({ id, nlikes, liked, description, src }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const { isAuth } = useContext(AppContext)
   const { updatePhotoMutation, loading, error } = useUpdatePhotoMutation()
 
@@ -50,7 +50,7 @@ export const PhotoCard = ({ id, nlikes, liked, description, src }) => {
         )
       }
     } else {
-      console.log('Before Link')
+      // console.log('Flag - Before Navigate')
       navigate('/user')
     }
   }

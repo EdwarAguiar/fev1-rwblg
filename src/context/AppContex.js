@@ -18,9 +18,9 @@ const AppProvider = (props) => {
       window.sessionStorage.setItem('token', token)
     },
     removeAuth: () => {
+      //console.log('Cerrando Session')
       setIsAuth(false)
       window.sessionStorage.removeItem('token')
-      // client.resetStore()
     }
   }
 
