@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 import { Link as LinkRouter } from 'react-router-dom'
 
+
+export const Header = styled.div`
+  width: 100%;
+  min-width: 375px;
+  max-width: 1200px;
+`
+
+
 export const Title = styled.h1`
   font-size: 1.5em;
   color: #004ca4;
@@ -19,7 +27,7 @@ export const Title = styled.h1`
 export const FilterTitle = styled.div`
   display: flex;
   justify-content: flex-end;
-  font-size: 1em;
+  font-size: 0.8em;
   
   @media all and (min-width: 1200px) {
     display: flex;

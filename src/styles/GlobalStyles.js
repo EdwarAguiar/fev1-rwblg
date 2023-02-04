@@ -32,40 +32,71 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     max-width: 500px;
     overscroll-behavior: none;
-    width: 100%; */
-    margin: 0 30px;
+    width: 100%; 
+    margin: 0 30px;*/
+
+    /* Mobile Version */
+  @media all and (max-width: 500px) {
     font-family: "Poppins";
     background: #f1f1f1;
+    width: 100%;
+    min-width: 375px;
+    max-width: 500px;
+    margin: 0px auto;
+    /* overscroll-behavior: none; */
+    
+    /* display: flex;
+    justify-content: center;
+    align-items: center;         <-- No en Mobile
+    flex-direction: column; */
+   }
 
-    @media all and (max-width: 500px) {
-      margin: 0 10px;
-      font-family: "Poppins";
-      background: #f1f1f1;
-    } 
+   /* Desktop Version */
+  @media all and (min-width: 501px) {
+    font-family: "Poppins";
+    background: #f1f1f1;
+    width: 100%;
+    min-width: 500px;
+    max-width: 1200px;
+    margin: 0px auto;
+    overscroll-behavior: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }  
   }
 
   #app {
+  /* Mobile Version */
+  @media all and (max-width: 500px) {
     font-size: 1.2em;
-    margin: 2px auto;
+    margin: 0px auto;
     width: 100%;
+    min-width: 375px;
     max-width: 500px;
     box-sizing: border-box;
 
-    @media all and (min-width: 1200px) {
-      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      overflow-x: hidden;
-      min-height: 100vh;
-      padding-bottom: 10px; */
-      font-size: 1.2em;
-      margin: 10px auto;
-      width: 100%;
-      /* max-width: 1200px; Original value*/
-      max-width: 1200px;
-      padding-top: 0px;
-      padding-bottom: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      box-sizing: border-box;
-    }
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
   }
+
+  @media all and (min-width: 500px) {
+    font-size: 1.2em;
+    margin: 0px auto;
+    width: 100%;
+    min-width: 400px;
+    max-width: 1200px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+}
 `

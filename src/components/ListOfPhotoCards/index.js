@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { WhiteGap } from '../WhiteGap'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { PhotoCard } from '../PhotoCard'
+import { FrameLOPC } from './styles'
 
 const ALL_PHOTOS = gql`
 query GetAllPhotos {
@@ -37,21 +39,24 @@ export const ListOfPhotoCards = () => {
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
-    <ul>
-      {
-        // [1, 2, 3, 4, 5].map(id => <PhotoCard key={id} />)
-        data.photos.data.map((photo) => (
-          <li key={photo.id}>
-            <PhotoCard
-              id={photo.id}
-              nlikes={photo.attributes.nlikes}
-              liked={photo.attributes.liked}
-              description={photo.attributes.description}
-              src={photo.attributes.src.data.attributes.url}
-            />
-          </li>
-        ))
-      }
-    </ul>
+    <FrameLOPC>
+      <ul>
+        {
+          // [1, 2, 3, 4, 5].map(id => <PhotoCard key={id} />)
+          data.photos.data.map((photo) => (
+            <li key={photo.id}>
+              <PhotoCard
+                id={photo.id}
+                nlikes={photo.attributes.nlikes}
+                liked={photo.attributes.liked}
+                description={photo.attributes.description}
+                src={photo.attributes.src.data.attributes.url}
+              />
+            </li>
+          ))
+        }
+      </ul>
+      <WhiteGap />
+    </FrameLOPC>
   )
 }

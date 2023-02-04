@@ -3,6 +3,7 @@ import { AppContext } from '../context/AppContex'
 import { UserForm } from '../components/UserForm'
 import { useRegisterMutation } from '../hooks/useRegisterMutation'
 import { useLoginMutation } from '../hooks/useLoginMutation'
+import { Frame } from '../styles/styles_nruser'
 
 export const NotRegisteredUser = () => {
   const { registerMutation, data: dataReg, loading: loadingReg, error: errorReg } = useRegisterMutation()
@@ -39,8 +40,10 @@ export const NotRegisteredUser = () => {
 
            return (
              <>
-               <UserForm title='Registrarse' onSubmit={onSubmitReg} disabled={loadingReg} error={errorMsgReg} />
-               <UserForm title='Iniciar Sesion' onSubmit={onSubmitLog} disabled={loadingLog} error={errorMsgLog} />
+               <Frame>
+                 <UserForm title='Registrarse' onSubmit={onSubmitReg} disabled={loadingReg} error={errorMsgReg} />
+                 <UserForm title='Iniciar Sesion' onSubmit={onSubmitLog} disabled={loadingLog} error={errorMsgLog} />
+               </Frame>
              </>
            )
          }

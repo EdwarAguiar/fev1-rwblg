@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState, useContext } from 'react'
 import { AppContext } from '../../context/AppContex'
 import { ImgWrapper, Img, Article } from './styles'
-// import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import { FavButton } from '../FavButton'
 import { useUpdatePhotoMutation } from '../../hooks/useUpdatePhoto'
 import ReactMarkdown from 'react-markdown'
 import { useNavigate } from 'react-router-dom'
-// import { useMutation } from '@apollo/client'
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 const BASEURL = 'http://localhost:1337'
@@ -17,8 +15,6 @@ export const PhotoCard = ({ id, nlikes, liked, description, src }) => {
   const { isAuth } = useContext(AppContext)
   const { updatePhotoMutation, loading, error } = useUpdatePhotoMutation()
 
-  // const key = `like-${id}`
-  // const [liked, setLiked] = useLocalStorage(key, false)
   const [show, element] = useNearScreen()
 
   const handleFavClick = () => {
@@ -50,7 +46,6 @@ export const PhotoCard = ({ id, nlikes, liked, description, src }) => {
         )
       }
     } else {
-      // console.log('Flag - Before Navigate')
       navigate('/user')
     }
   }

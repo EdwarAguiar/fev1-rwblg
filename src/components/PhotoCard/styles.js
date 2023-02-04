@@ -22,5 +22,8 @@ export const Img = styled.img`
 `
 
 export const Article = styled.article`
+  width: 100%;
+  min-width: 300px;
+  max-width: 1000px; 
   min-height: 200px;
 `
