@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { PhotoCard } from '../components/PhotoCard'
+import { FramePBCP } from '../styles/styles_bcp'
 
 const PHOTO_CATEGORY = gql`
 query GetPhotoCategory($id: ID!) {
@@ -57,7 +58,7 @@ export const PhotosBCpage = () => {
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
-    <>
+    <FramePBCP>
       <ListOfPhotoCategories />
       <ul>
         {
@@ -74,6 +75,6 @@ export const PhotosBCpage = () => {
           ))
         }
       </ul>
-    </>
+    </FramePBCP>
   )
 }

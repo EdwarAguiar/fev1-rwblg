@@ -2,7 +2,7 @@ import React from 'react'
 import { PhotoCategory } from '../PhotoCategory'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
-import { List, Item, Link } from './styles'
+import { List, Item } from './styles'
 
 const PHOTO_CATEGORIES = gql`
 query GetPhotoCategories {
@@ -27,7 +27,6 @@ query GetPhotoCategories {
 `
 
 export const ListOfPhotoCategories = () => {
-  // const { loading, error, data } = useFetch('http://localhost:1337/api/photocategories')
   const { id } = useParams()
   const { loading, error, data } = useQuery(PHOTO_CATEGORIES)
 
@@ -39,9 +38,7 @@ export const ListOfPhotoCategories = () => {
   return (
     <List>
       {
-        // [1, 2, 3, 4, 5, 6].map((pcategory) => <Item key={pcategory}> <PhotoCategory /> </Item>)
         data.photocategories.data.map(pcategory =>
-          // <Link key={pcategory.id} to={`/photocategories/${pcategory.id}`}>
           <Item key={pcategory.id}>
             <PhotoCategory
               name={pcategory.attributes.name}
@@ -49,7 +46,6 @@ export const ListOfPhotoCategories = () => {
               path={`/photocategories/${pcategory.id}`}
             />
           </Item>
-          // </Link>
         )
       }
     </List>

@@ -22,8 +22,11 @@ export const Img = styled.img`
 `
 
 export const Article = styled.article`
-  width: 100%;
-  min-width: 300px;
-  max-width: 1000px; 
-  min-height: 200px;
+  @media all and (max-width: 500px) {
+    width: 100%;
+    min-width: 375px;
+    max-width: 490px; 
+    min-height: 200px;
+  }
+  
 `

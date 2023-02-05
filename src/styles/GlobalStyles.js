@@ -40,23 +40,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Poppins";
     background: #f1f1f1;
     width: 100%;
-    min-width: 375px;
     max-width: 500px;
     margin: 0px auto;
-    /* overscroll-behavior: none; */
-    
-    /* display: flex;
-    justify-content: center;
-    align-items: center;         <-- No en Mobile
-    flex-direction: column; */
    }
 
    /* Desktop Version */
-  @media all and (min-width: 501px) {
+  @media all and (min-width: 1200px) {
     font-family: "Poppins";
     background: #f1f1f1;
     width: 100%;
-    min-width: 500px;
     max-width: 1200px;
     margin: 0px auto;
     overscroll-behavior: none;
@@ -74,7 +66,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.2em;
     margin: 0px auto;
     width: 100%;
-    min-width: 375px;
     max-width: 500px;
     box-sizing: border-box;
 
@@ -84,11 +75,10 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column; */
   }
 
-  @media all and (min-width: 500px) {
+  @media all and (min-width: 1200px) {
     font-size: 1.2em;
     margin: 0px auto;
     width: 100%;
-    min-width: 400px;
     max-width: 1200px;
     box-sizing: border-box;
 
