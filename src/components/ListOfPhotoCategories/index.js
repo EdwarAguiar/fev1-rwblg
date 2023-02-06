@@ -26,7 +26,8 @@ query GetPhotoCategories {
 }
 `
 
-export const ListOfPhotoCategories = () => {
+// export const ListOfPhotoCategories = () => {
+const ListOfPhotoCategoriesComponents = () => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(PHOTO_CATEGORIES)
 
@@ -51,3 +52,5 @@ export const ListOfPhotoCategories = () => {
     </List>
   )
 }
+
+export const ListOfPhotoCategories = React.memo(ListOfPhotoCategoriesComponents)

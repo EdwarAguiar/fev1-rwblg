@@ -47,7 +47,8 @@ query GetPhotoCategory($id: ID!) {
 }
 `
 
-export const PhotosBCpage = () => {
+// export const PhotosBCpage = () => {
+const PhotosBCpageComponent = () => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(PHOTO_CATEGORY, {
     variables: { id: id }
@@ -80,3 +81,5 @@ export const PhotosBCpage = () => {
     </FramePBCP>
   )
 }
+
+export const PhotosBCpage = React.memo(PhotosBCpageComponent)

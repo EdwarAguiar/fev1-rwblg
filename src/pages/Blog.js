@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet'
 import { ListOfArticles } from '../components/ListOfArticles'
 import { SiteHeader } from '../components/SiteHeader'
 
-export const Blog = () => {
+//export const Blog = () => {
+const BlogComponent = () => {
   return (
     <>
       <Helmet>
@@ -15,3 +16,5 @@ export const Blog = () => {
     </>
   )
 }
+
+export const Blog = React.memo(BlogComponent)

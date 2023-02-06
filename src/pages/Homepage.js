@@ -1,7 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-export const Homepage = () => {
+// export const Homepage = () => {
+const HomepageComponent = () => {
   return (
     <div>
       <Helmet>
@@ -12,3 +13,5 @@ export const Homepage = () => {
     </div>
   )
 }
+
+export const Homepage = React.memo(HomepageComponent)

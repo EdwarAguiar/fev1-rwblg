@@ -6,7 +6,9 @@ import { useRegisterMutation } from '../hooks/useRegisterMutation'
 import { useLoginMutation } from '../hooks/useLoginMutation'
 import { Frame } from '../styles/styles_nruser'
 
-export const NotRegisteredUser = () => {
+
+// export const NotRegisteredUser = () => {
+const NotRegisteredUserComponent = () => {
   const { registerMutation, data: dataReg, loading: loadingReg, error: errorReg } = useRegisterMutation()
   const { loginMutation, data: dataLog, loading: loadingLog, error: errorLog } = useLoginMutation()
 
@@ -57,3 +59,5 @@ export const NotRegisteredUser = () => {
     </>
   )
 }
+
+export const NotRegisteredUser = React.memo(NotRegisteredUserComponent)
