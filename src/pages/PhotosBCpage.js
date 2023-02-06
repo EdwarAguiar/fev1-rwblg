@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { PhotoCard } from '../components/PhotoCard'
 import { FramePBCP } from '../styles/styles_bcp'
+import { WhiteGap } from '../components/WhiteGap'
 
 const PHOTO_CATEGORY = gql`
 query GetPhotoCategory($id: ID!) {
@@ -75,6 +76,7 @@ export const PhotosBCpage = () => {
           ))
         }
       </ul>
+      <WhiteGap />
     </FramePBCP>
   )
 }

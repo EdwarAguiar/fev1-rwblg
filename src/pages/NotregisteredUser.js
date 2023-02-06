@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Helmet } from 'react-helmet'
 import { AppContext } from '../context/AppContex'
 import { UserForm } from '../components/UserForm'
 import { useRegisterMutation } from '../hooks/useRegisterMutation'
@@ -11,6 +12,10 @@ export const NotRegisteredUser = () => {
 
   return (
     <>
+      <Helmet>
+        <title> Registrarse/Iniciar sesión - Edwar Aguiar</title>
+        <meta name='description' content='Registrarse/Iniciar Sesión - Formulario para Iniciar Sesión o Registrarse para proveer retroalimentación a Edwar Aguiar' />
+      </Helmet>
       <AppContext.Consumer>
         {
          ({ activateAuth }) => {

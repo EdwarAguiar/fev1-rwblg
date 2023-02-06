@@ -1,11 +1,14 @@
 import React from 'react'
-import { ListOfArticles } from '../components/ListOfArticles'
-import { SiteHeader } from '../components/SiteHeader'
+import { Helmet } from 'react-helmet'
 
 export const Homepage = () => {
   return (
-    <>
-       <h2> Aqui va el HomePage</h2>
-    </>
+    <div>
+      <Helmet>
+        <title> Home - Edwar Aguiar</title>
+        <meta name='description' content='Seccion Blog - Pagina web de referencia y trayectoria de Edwar Aguiar' />
+      </Helmet>
+      <h2> Aqui va el HomePage</h2>
+    </div>
   )
 }
