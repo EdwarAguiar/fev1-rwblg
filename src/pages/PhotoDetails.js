@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { PhotoCard } from '../components/PhotoCard'
+import { FramePD } from '../styles/styles_pd'
 
 const PHOTO = gql`
 query GetPhoto($id: ID!) {
@@ -41,7 +42,7 @@ const PhotoDetailsComponent = () => {
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
-    <>
+    <FramePD>
       <ListOfPhotoCategories />
       <ul>
         <PhotoCard
@@ -52,8 +53,9 @@ const PhotoDetailsComponent = () => {
           src={data.photo.data.attributes.src.data.attributes.url}
         />
       </ul>
-    </>
+    </FramePD>
   )
 }
 
-export const PhotoDetails = React.memo(PhotoDetailsComponent)
+const PhotoDetails = React.memo(PhotoDetailsComponent)
+export default PhotoDetails

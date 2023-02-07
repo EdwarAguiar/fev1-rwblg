@@ -13,5 +13,5 @@ const HomepageComponent = () => {
     </div>
   )
 }
-
-export const Homepage = React.memo(HomepageComponent)
+const Homepage = React.memo(HomepageComponent)
+export default Homepage

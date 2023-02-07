@@ -57,8 +57,8 @@ query GetArticle($id: ID!) {
   }
 }
 `
-
-export const ArticleDetails = () => {
+// export const ArticleDetails = () => {
+const ArticleDetails = () => {
   // const { loading, error, data } = useFetch(`http://localhost:1337/api/articles/${id}?populate=*`)
   const { id } = useParams()
   const { loading, error, data } = useQuery(ARTICLE, {
@@ -100,3 +100,5 @@ export const ArticleDetails = () => {
     </>
   )
 }
+
+export default ArticleDetails

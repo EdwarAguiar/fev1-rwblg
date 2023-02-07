@@ -54,7 +54,8 @@ query GetCategory($id: ID!) {
 }
 `
 
-export const Category = () => {
+// export const Category = () => {
+const Category = () => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(CATEGORY, {
     variables: { id: id }
@@ -85,3 +86,5 @@ export const Category = () => {
     </ul>
   )
 }
+
+export default Category

@@ -82,4 +82,5 @@ const PhotosBCpageComponent = () => {
   )
 }
 
-export const PhotosBCpage = React.memo(PhotosBCpageComponent)
+const PhotosBCpage = React.memo(PhotosBCpageComponent)
+export default PhotosBCpage

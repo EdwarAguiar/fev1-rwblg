@@ -16,5 +16,5 @@ const PhotopageComponent = () => {
     </>
   )
 }
-
-export const Photopage = React.memo(PhotopageComponent)
+const Photopage = React.memo(PhotopageComponent)
+export default Photopage

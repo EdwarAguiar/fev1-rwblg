@@ -7,4 +7,6 @@ const NotfoundComponent = () => {
   )
 }
 
-export const Notfound = React.memo(NotfoundComponent)
+const Notfound = React.memo(NotfoundComponent)
+
+export default Notfound

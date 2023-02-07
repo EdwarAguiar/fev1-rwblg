@@ -22,4 +22,5 @@ export const Link = styled(LinkRouter)`
   margin-left: 10px;
   text-decoration: none;
   color: #004ca4;
+  font-size: 0.1em;
 `

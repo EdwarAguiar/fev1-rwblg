@@ -17,4 +17,6 @@ const BlogComponent = () => {
   )
 }
 
-export const Blog = React.memo(BlogComponent)
+const Blog = React.memo(BlogComponent)
+
+export default Blog

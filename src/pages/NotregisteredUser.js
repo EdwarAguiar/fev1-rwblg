@@ -60,4 +60,5 @@ const NotRegisteredUserComponent = () => {
   )
 }
 
-export const NotRegisteredUser = React.memo(NotRegisteredUserComponent)
+const NotRegisteredUser = React.memo(NotRegisteredUserComponent)
+export default NotRegisteredUser

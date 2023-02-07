@@ -3,7 +3,8 @@ import { AppContext } from '../context/AppContex'
 import { SubmitButton } from '../components/SubmitButton'
 import { Frame, Msg } from '../styles/styles_user'
 
-export const User = () => {
+// export const User = () => {
+const User = () => {
   const { removeAuth } = useContext(AppContext)
 
   return (
@@ -18,3 +19,5 @@ export const User = () => {
     </Frame>
   )
 }
+
+export default User
