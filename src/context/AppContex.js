@@ -7,6 +7,11 @@ const AppProvider = (props) => {
     return window.sessionStorage.getItem('token')
   })
 
+  const [isSP, setIsSP] = useState(true)
+
+  const activateSP = () => setIsSP(true)
+  const activateEN = () => setIsSP(false)
+
   // const client = useApolloClient()
   const activateAuth = () => setIsAuth(true)
   const removeAuth = () => setIsAuth(false)
@@ -21,7 +26,10 @@ const AppProvider = (props) => {
       //console.log('Cerrando Session')
       setIsAuth(false)
       window.sessionStorage.removeItem('token')
-    }
+    },
+    isSP,
+    activateSP,
+    activateEN
   }
 
   return (

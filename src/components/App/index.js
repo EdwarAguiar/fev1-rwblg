@@ -4,6 +4,7 @@ import { AppContext } from '../../context/AppContex'
 import { GlobalStyle } from '../../styles/GlobalStyles'
 import { Logo } from '../../components/Logo'
 import { NavBar } from '../../components/NavBar'
+import { Language } from '../../components/Language'
 
 // import { Homepage } from '../../pages/Homepage'
 // import { Blog } from '../../pages/Blog'
@@ -35,6 +36,7 @@ export const App = () => {
     <Suspense fallback={<div />}>
       <BrowserRouter>
         <GlobalStyle />
+        <Language />
         <Logo />
         <Routes>
           <Route path='/' element={<Homepage />} />

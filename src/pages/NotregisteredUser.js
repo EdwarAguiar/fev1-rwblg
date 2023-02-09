@@ -7,10 +7,15 @@ import { useLoginMutation } from '../hooks/useLoginMutation'
 import { Frame } from '../styles/styles_nruser'
 
 
-// export const NotRegisteredUser = () => {
 const NotRegisteredUserComponent = () => {
+  const { isSP } = useContext(AppContext)
   const { registerMutation, data: dataReg, loading: loadingReg, error: errorReg } = useRegisterMutation()
   const { loginMutation, data: dataLog, loading: loadingLog, error: errorLog } = useLoginMutation()
+
+  const L1errorReg = isSP ? 'El usuario ya existe o hay algun problema' : 'The user already exists or there is a problem'
+  const L2errorLog = isSP ? 'La contraseña no es correcta o el Usuario no existe' : 'The password is not correct or the User does not exist'
+  const L3Registrarse = isSP ? 'Registrarse' : 'Sign Up'
+  const L4IniciarSesion = isSP ? 'Iniciar Sesión' : 'Log In'
 
   return (
     <>
@@ -42,14 +47,14 @@ const NotRegisteredUserComponent = () => {
              })
            }
 
-           const errorMsgReg = errorReg && 'El usuario ya existe o hay algun problema'
-           const errorMsgLog = errorLog && 'La contraseña no es correcta o el Usuario no existe'
+           const errorMsgReg = errorReg && { L1errorReg }
+           const errorMsgLog = errorLog && { L2errorLog }
 
            return (
              <>
                <Frame>
-                 <UserForm title='Registrarse' onSubmit={onSubmitReg} disabled={loadingReg} error={errorMsgReg} />
-                 <UserForm title='Iniciar Sesion' onSubmit={onSubmitLog} disabled={loadingLog} error={errorMsgLog} />
+                 <UserForm title={L3Registrarse} onSubmit={onSubmitReg} disabled={loadingReg} error={errorMsgReg} />
+                 <UserForm title={L4IniciarSesion} onSubmit={onSubmitLog} disabled={loadingLog} error={errorMsgLog} />
                </Frame>
              </>
            )
