@@ -27,7 +27,6 @@ const NotRegisteredUserComponent = () => {
         {
          ({ activateAuth }) => {
            const onSubmitReg = ({ email, password }) => {
-             // console.log('Registrarse')
              const username = email.substring(0, email.indexOf('@'))
              const variables = ({ username, email, password })
              registerMutation({ variables }).then(({ data }) => {

@@ -1,10 +1,10 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import moment from 'moment'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { SiteHeader } from '../components/SiteHeader'
-import ReactMarkdown from 'react-markdown'
-import moment from 'moment'
-// import { useFetch } from '../hooks/useFetch'
+import { config } from '../config/config'
 
 import { Link, Article, ButtonWrapper, ArticleButton, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image, AutorWrapper } from '../styles/styles_pad'
 
@@ -57,14 +57,16 @@ query GetArticle($id: ID!) {
   }
 }
 `
-// export const ArticleDetails = () => {
+
 const ArticleDetails = () => {
   // const { loading, error, data } = useFetch(`http://localhost:1337/api/articles/${id}?populate=*`)
   const { id } = useParams()
   const { loading, error, data } = useQuery(ARTICLE, {
     variables: { id: id }
   })
-  const BASEURL = 'http://localhost:1337'
+  
+  //const BASEURL = 'http://localhost:1337'
+  const BASEURL = config.backendUrl
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>

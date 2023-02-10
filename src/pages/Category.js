@@ -54,14 +54,11 @@ query GetCategory($id: ID!) {
 }
 `
 
-// export const Category = () => {
 const Category = () => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(CATEGORY, {
     variables: { id: id }
   })
-
- // console.log("La Data FBC", data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>

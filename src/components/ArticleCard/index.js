@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { useNearScreen } from '../../hooks/useNearScreen'
+import { config } from '../../config/config'
 import { Link, Card, Title, CardButton, Parrafo, Article, RatingCard, Rating, CatWrapper, Cat, Image } from './styles'
 
-const BASEURL = 'http://localhost:1337'
+const BASEURL = config.backendUrl
 
 export const ArticleCard = ({ id, title, rating, body, categories, picture }) => {
   const [show, element] = useNearScreen()

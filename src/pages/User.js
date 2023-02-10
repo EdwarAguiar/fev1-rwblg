@@ -3,7 +3,6 @@ import { AppContext } from '../context/AppContex'
 import { SubmitButton } from '../components/SubmitButton'
 import { Frame, Msg } from '../styles/styles_user'
 
-// export const User = () => {
 const User = () => {
   const { removeAuth, isSP } = useContext(AppContext)
   const L1 = isSP ? 'Perfil del Usuario' : 'User Profile'

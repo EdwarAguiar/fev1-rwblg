@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { ListOfPhotoCards } from '../components/ListOfPhotoCards'
 
-// export const Photopage = () => {
 const PhotopageComponent = () => {
   return (
     <>

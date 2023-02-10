@@ -28,13 +28,12 @@ query GetPhoto($id: ID!) {
   }
 }
 `
-// export const PhotoDetails = () => {
+
 const PhotoDetailsComponent = () => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(PHOTO, {
     variables: { id: id }
   })
-  const BASEURL = 'http://localhost:1337'
 
   console.log('Detalle Photo', data)
 

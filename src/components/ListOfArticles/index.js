@@ -1,6 +1,5 @@
 import React from 'react'
 import { ArticleCard } from '../ArticleCard'
-// import { useFetch } from '../../hooks/useFetch'
 import { List, Item } from './styles'
 import { useQuery, gql } from '@apollo/client'
 
@@ -46,10 +45,7 @@ query GetArticles {
 `
 
 export const ListOfArticles = () => {
-  // const { loading, error, data } = useFetch('http://localhost:1337/api/articles?populate=*')
   const { loading, error, data } = useQuery(ARTICLES)
-
-  // console.log("La Data", data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
