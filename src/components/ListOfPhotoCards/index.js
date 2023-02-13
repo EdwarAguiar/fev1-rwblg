@@ -1,13 +1,38 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
+import { AppContext } from '../../context/AppContex'
 import { WhiteGap } from '../WhiteGap'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { PhotoCard } from '../PhotoCard'
 import { FrameLOPC } from './styles'
 
-const ALL_PHOTOS = gql`
+const ALL_PHOTOS_SP = gql`
 query GetAllPhotos {
-  photos {
+  photos(locale: "es-VE") {
+    data {
+      id,
+      attributes {
+        nlikes,
+        liked,
+        description,
+        src {
+          data {
+            id,
+            attributes {
+              name,
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
+const ALL_PHOTOS_EN = gql`
+query GetAllPhotos {
+  photos(locale: "en") {
     data {
       id,
       attributes {
@@ -30,10 +55,9 @@ query GetAllPhotos {
 `
 
 export const ListOfPhotoCards = () => {
+  const { isSP } = useContext(AppContext)
   const { id } = useParams()
-  const { loading, error, data } = useQuery(ALL_PHOTOS)
-
-  // console.log('X-- TODO', data)
+  const { loading, error, data } = isSP ? useQuery(ALL_PHOTOS_SP) : useQuery(ALL_PHOTOS_EN)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>

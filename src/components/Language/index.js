@@ -6,7 +6,7 @@ import { FlagUSA } from '../FlagUSA'
 
 export const Language = () => {
   const { isSP, activateSP, activateEN } = useContext(AppContext)
-  console.log(isSP)
+  // console.log(isSP)
 
   if (isSP) {
     return (

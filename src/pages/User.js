@@ -4,7 +4,8 @@ import { SubmitButton } from '../components/SubmitButton'
 import { Frame, Msg } from '../styles/styles_user'
 
 const User = () => {
-  const { removeAuth, isSP } = useContext(AppContext)
+  const { removeAuth, isSP, setModule } = useContext(AppContext)
+  setModule('user')
   const L1 = isSP ? 'Perfil del Usuario' : 'User Profile'
   const L2 = isSP ? 'Brilla, brilla intensamente' : 'Shine, shine bright'
   const L3 = isSP ? 'hasta que el Mundo,' : 'until the world'

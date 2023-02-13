@@ -1,11 +1,52 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../../context/AppContex'
 import { ArticleCard } from '../ArticleCard'
 import { List, Item } from './styles'
 import { useQuery, gql } from '@apollo/client'
 
-const ARTICLES = gql`
+const ARTICLES_SP = gql`
 query GetArticles {
-  articles {
+  articles(locale: "es-VE") {
+    data {
+      id,
+      attributes{
+        title,
+        rating,
+        body,
+        image_n1 {
+          data {
+            id,
+            attributes {
+              name,
+              url
+            }
+          }
+        }
+        image_n2 {
+          data {
+            id,
+            attributes {
+              name,
+              url
+            }
+          }
+        }
+        categories {
+          data {
+            id,
+            attributes{
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+const ARTICLES_EN = gql`
+query GetArticles {
+  articles(locale: "en") {
     data {
       id,
       attributes{
@@ -45,7 +86,9 @@ query GetArticles {
 `
 
 export const ListOfArticles = () => {
-  const { loading, error, data } = useQuery(ARTICLES)
+  const { isSP } = useContext(AppContext)
+  console.log('Articles en SP', isSP)
+  const { loading, error, data } = isSP ? useQuery(ARTICLES_SP) : useQuery(ARTICLES_EN)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>

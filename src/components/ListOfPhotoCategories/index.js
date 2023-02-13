@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../../context/AppContex'
 import { PhotoCategory } from '../PhotoCategory'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { List, Item } from './styles'
 
-const PHOTO_CATEGORIES = gql`
+const PHOTO_CATEGORIES_SP = gql`
 query GetPhotoCategories {
-  photocategories {
+  photocategories(locale: "es-VE") {
+    data {
+      id,
+      attributes{
+        name,
+        src {
+          data {
+            id,
+            attributes {
+              name,
+              url
+            }
+          }
+        }
+       }
+    }
+  }
+}
+`
+const PHOTO_CATEGORIES_EN = gql`
+query GetPhotoCategories {
+  photocategories(locale: "en") {
     data {
       id,
       attributes{
@@ -26,15 +48,14 @@ query GetPhotoCategories {
 }
 `
 
-// export const ListOfPhotoCategories = () => {
 const ListOfPhotoCategoriesComponents = () => {
+  const { isSP } = useContext(AppContext)
   const { id } = useParams()
-  const { loading, error, data } = useQuery(PHOTO_CATEGORIES)
+
+  const { loading, error, data } = isSP ? useQuery(PHOTO_CATEGORIES_SP) : useQuery(PHOTO_CATEGORIES_EN)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
-
-  // console.log('La data que llega', data)
 
   return (
     <List>

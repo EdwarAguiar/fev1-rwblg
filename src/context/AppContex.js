@@ -8,6 +8,7 @@ const AppProvider = (props) => {
   })
 
   const [isSP, setIsSP] = useState(true)
+  const [module, setModule] = useState('home')
 
   const activateSP = () => setIsSP(true)
   const activateEN = () => setIsSP(false)
@@ -29,7 +30,9 @@ const AppProvider = (props) => {
     },
     isSP,
     activateSP,
-    activateEN
+    activateEN,
+    module,
+    setModule
   }
 
   return (

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../context/AppContex'
 import { Helmet } from 'react-helmet'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { ListOfPhotoCards } from '../components/ListOfPhotoCards'
 
 const PhotopageComponent = () => {
+  const { setModule } = useContext(AppContext)
+  setModule('photos')
   return (
     <>
       <Helmet>
