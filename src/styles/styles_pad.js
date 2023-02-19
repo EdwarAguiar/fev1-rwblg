@@ -12,13 +12,10 @@ export const Anchor = styled.a`
 export const Image = styled.img`
   border: 1px solid #ddd;
   box-shadow: 0px 10px 14px rgba(0, 0, 0, .2);
-  /* border-radius: 50%; */
   overflow: hidden;
   object-fit: cover;
-  /* height: 255px; */
   height: 255px;
   width: auto;
-  /* transform: scale(0.70); */
   margin-top: 10px;
   margin-bottom: 20px;
 `
@@ -27,7 +24,6 @@ export const ArticleWrapper = styled.div`
   margin: 60px auto;
   padding: 1px 20px 20px 90px;
   position: relative;
-
 `
 export const Article = styled.div`
   display: flex;

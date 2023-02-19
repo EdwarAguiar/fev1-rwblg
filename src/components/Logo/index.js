@@ -2,18 +2,44 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Svg, LogoWrapper } from './styles'
 
+// width={695.319}
+// height={122}
+// viewBox='-97.659 14 695.319 122'
+let xw = 695.319
+let xh = 122
+let vbox = '-5.659 24 500.319 122'
+
+if (window.innerWidth <= 500) {
+  xw = 280
+  xh = 70
+  vbox = '-5.659 24 500.319 122'
+} else if (window.innerWidth > 500 && window.innerWidth <= 800) {
+  xw = 300
+  xh = 80
+  vbox = '-5.659 24 500.319 122'
+} else if (window.innerWidth > 800 && window.innerWidth < 1100) {
+  xw = 320
+  xh = 100
+  vbox = '-5.659 24 500.319 122'
+} else if (window.innerWidth >= 1100) {
+  xw = 695.319
+  xh = 122
+  vbox = '-97.659 14 695.319 122'
+}
+
 export const Logo = (props) => (
   <Link to='/'>
     <LogoWrapper>
       <Svg
         xmlns='http://www.w3.org/2000/svg'
-        width={695.319}
-        height={122}
+        width={xw}
+        height={xh}
         preserveAspectRatio='xMidYMid'
         style={{
-          background: '0 0',
+          background: '0 0'
         }}
-        viewBox='-97.659 14 695.319 122'
+        // viewBox='-5.659 24 500.319 122'
+        viewBox = {vbox}
         {...props}
       >
       <defs>

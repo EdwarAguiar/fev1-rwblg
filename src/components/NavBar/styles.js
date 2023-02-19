@@ -42,22 +42,34 @@ export const Nav = styled.nav`
 `
 
 export const Link = styled(LinkRouter)`
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   color: #888;
   height: 100%;
-  justify-content: center;
   text-decoration: none;
   width: 100%;
   &.selected{
     color: #000;
+    border-top: 3px solid #000;
+    background-color: #e0e0e0;
+    font-weight: bold;
     &:after{
     ${fadeIn({ time: '0.5s' })}
-      content: '·';
-      position: absolute;
+      /* content: '·'; */
+      /* position: absolute;
       bottom: 0;
       font-size: 34px;
-      line-height:20px;
+      line-height:20px; */
     }
   }
-  `
+`
+
+export const NavIcon = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  border-top: 0px;
+
+`

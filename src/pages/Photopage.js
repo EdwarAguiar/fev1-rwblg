@@ -5,8 +5,8 @@ import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { ListOfPhotoCards } from '../components/ListOfPhotoCards'
 
 const PhotopageComponent = () => {
-  const { setModule } = useContext(AppContext)
-  setModule('photos')
+  // const { setModule } = useContext(AppContext)
+  // setModule('photos')
   return (
     <>
       <Helmet>

@@ -7,6 +7,8 @@ export const FrameLG = styled.div`
   background-color: #f1f1f1;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 80px;
+  /* border: 1px solid black;  */
 `
 
 export const Button = styled.button`

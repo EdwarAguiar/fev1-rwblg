@@ -20,6 +20,7 @@ import { Language } from '../../components/Language'
 
 const Homepage = React.lazy(() => import('../../pages/Homepage'))
 const Blog = React.lazy(() => import('../../pages/Blog'))
+const Aboutme = React.lazy(() => import('../../pages/Aboutme'))
 const Category = React.lazy(() => import('../../pages/Category'))
 const ArticleDetails = React.lazy(() => import('../../pages/ArticleDetails'))
 const Photopage = React.lazy(() => import('./../../pages/Photopage'))
@@ -37,10 +38,11 @@ export const App = () => {
       <BrowserRouter>
         <GlobalStyle />
         <Language />
-        <Logo />
+        {/* <Logo /> */}
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/aboutme' element={<Aboutme />} />
           <Route path='/photos' element={<Photopage />} />
           <Route path='/photodetails/:id' element={<PhotoDetails />} />
           <Route path='/photocategories/:id' element={<PhotosBCpage />} />

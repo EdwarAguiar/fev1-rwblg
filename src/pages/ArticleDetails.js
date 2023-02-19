@@ -64,8 +64,7 @@ const ArticleDetails = () => {
   const { loading, error, data } = useQuery(ARTICLE, {
     variables: { id: id }
   })
-  
-  //const BASEURL = 'http://localhost:1337'
+
   const BASEURL = config.backendUrl
 
   if (loading) return <p>Loading...!</p>

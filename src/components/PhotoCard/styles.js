@@ -27,6 +27,7 @@ export const Article = styled.article`
     min-width: 375px;
     max-width: 490px; 
     min-height: 200px;
+    /* border: 1px solid black; */
   }
-  
+  margin-bottom: 10px;
 `
