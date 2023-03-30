@@ -1,8 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
-module.exports = {
-  mode: 'production',
+const config = {
   output: {
     filename: 'app.bundle.js',
     publicPath: '/'
@@ -28,3 +27,5 @@ module.exports = {
     ]
   }
 }
+
+module.exports = config
