@@ -74,20 +74,21 @@ const ArticleDetails = () => {
     <>
       <SiteHeader />
       <ArticleWrapper>
-        <RatingCard><Rating>{data.article.data.attributes.rating}</Rating></RatingCard>
+        {/* <RatingCard><Rating>{data.article.data.attributes.rating}</Rating></RatingCard> */}
+        <RatingCard><Rating>{data.article.data.id}</Rating></RatingCard>
         <h2>{data.article.data.attributes.title}</h2>
         {data.article.data.attributes.categories.data.map(category => (
           <Cat key={category.id}>{category.attributes.name}</Cat>
         ))}
         <Article>
-          <Image src={BASEURL + data.article.data.attributes.image_n2.data.attributes.url} alt='Photo Article' />
+          <Image src={data?.article?.data?.attributes?.image_n2?.data?.attributes?.url} alt='Photo Article' />
           <ReactMarkdown escapeHtml={false}>
             {data.article.data.attributes.body}
           </ReactMarkdown>
         </Article>
         <AutorWrapper>
           <p>
-            {`Autor: ${data.article.data.attributes.writer.data.attributes.name} `}
+            {`Autor: ${data.article.data.attributes.writer.data === null ? 'Backend: No Info Added' : data.article.data.attributes.writer.data.attributes.name} `}
             - Fecha de Publicacion: {moment(data.article.data.attributes.publishedAt).format('DD/MM/YYYY')}
           </p>
         </AutorWrapper>

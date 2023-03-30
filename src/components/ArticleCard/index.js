@@ -29,7 +29,8 @@ export const ArticleCard = ({ id, title, rating, body, categories, picture }) =>
                 }
               </ReactMarkdown>
             </Parrafo>
-            <Image src={BASEURL + picture} alt='Photo Article' />
+            {/* <Image src={BASEURL + picture} alt='Photo Article' /> */}
+            <Image src={picture} alt='Photo Article' />
           </Card>
 
           <CardButton>

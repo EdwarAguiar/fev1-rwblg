@@ -22,7 +22,7 @@ query GetPhotoCategory($id: ID!) {
             }
           }
         }
-        photos {
+        photos (pagination: { limit: 50}) {
           data {
             id,
             attributes {

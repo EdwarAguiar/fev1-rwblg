@@ -37,10 +37,8 @@ const NotRegisteredUserComponent = () => {
            }
 
            const onSubmitLog = ({ email, password }) => {
-             // console.log('Iniciar session')
              const variables = ({ email, password })
              loginMutation({ variables }).then(({ data }) => {
-               // console.log(data.login.jwt)
                const { login: { jwt } } = data
                activateAuth(jwt)
              })

@@ -62,22 +62,16 @@ const HomepageComponent = () => {
   if (loading) return isSP ? <p>Cargando...!</p> : <p>Loading...!</p>
   if (error) return isSP ? <p>Huy! Error - Algo salio mal...!</p> : <p>Oops! Error - Something went wrong!</p>
 
-  // console.log('Home Data:', data)
-
-  // const SPL1 = 'Brilla'
-  // const SPL2 = 'brilla instensamente,'
-  // const SPL3 = 'hasta que el Mundo,'
-  // const SPL4 = 'se maraville con lo que ve...'
 
   const LINE1 = data.home.data.attributes.Line1
   const LINE2 = data.home.data.attributes.Line2
   const LINE3 = data.home.data.attributes.Line3
   const LINE4 = data.home.data.attributes.Line4
-  const IMAGE = BASEURL + data?.home?.data?.attributes?.art?.data?.attributes?.url
+  // const IMAGE = BASEURL + data?.home?.data?.attributes?.art?.data?.attributes?.url
+  const IMAGE = data?.home?.data?.attributes?.art?.data?.attributes?.url
+  console.log(IMAGE)
   const DEFAULT_IMAGE = BASEURL + '/uploads/default_image_67dbbfc74a.png'
-  // const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
-  // const DEFAULT_IMAGE = 'http://localhost:1337/uploads/Edwar_Aguiar_d7166d44ec.png'
-  // const DEFAULT_IMAGE = 'http://localhost:1337/uploads/art_mobiledesktop_1500x1075_856d5141ca.png'
+
 
   return (
     <FrameHome>

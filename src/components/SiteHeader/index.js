@@ -3,7 +3,9 @@ import { useFetch } from '../../hooks/useFetch'
 import { Title, FilterTitle, Categories, Link, Header } from './styles'
 
 export const SiteHeader = () => {
-  const { loading, error, data } = useFetch('http://localhost:1337/api/categories')
+  // const { loading, error, data } = useFetch('http://localhost:1337/api/categories')
+  const { loading, error, data } = useFetch('https://bev4-strapi.onrender.com/api/categories')
+
 
   // console.log("NIVEL SiteHeader Data", data)
 

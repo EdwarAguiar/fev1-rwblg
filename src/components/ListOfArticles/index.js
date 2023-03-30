@@ -6,7 +6,7 @@ import { useQuery, gql } from '@apollo/client'
 
 const ARTICLES_SP = gql`
 query GetArticles {
-  articles(locale: "es-VE") {
+  articles(locale: "es-VE", pagination: { limit: 50}) {
     data {
       id,
       attributes{
@@ -46,7 +46,7 @@ query GetArticles {
 `
 const ARTICLES_EN = gql`
 query GetArticles {
-  articles(locale: "en") {
+  articles(locale: "en", pagination: { limit: 50}) {
     data {
       id,
       attributes{
@@ -100,7 +100,8 @@ export const ListOfArticles = () => {
           <ArticleCard
             id={art.id}
             title={art.attributes.title}
-            rating={art.attributes.rating}
+            // rating={art.attributes.rating}
+            rating={art.id}
             body={art.attributes.body}
             picture={art.attributes.image_n1.data.attributes.url}
             categories={art.attributes.categories}

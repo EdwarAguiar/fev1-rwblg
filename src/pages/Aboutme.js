@@ -59,14 +59,10 @@ const AboutmeComponent = () => {
   if (loading) return isSP ? <p>Cargando...!</p> : <p>Loading...!</p>
   if (error) return isSP ? <p>Error - Algo salio mal...!</p> : <p>Oops! Error - Something went wrong!</p>
 
-   // console.log('La Data:', data)
-
   const SPL1 = data.aboutme.data.attributes.title
   const SPL2 = data.aboutme.data.attributes.body
-  const IMAGE = BASEURL + data?.aboutme?.data?.attributes?.art?.data?.attributes?.url
-
-  // const DEFAULT_IMAGE = 'http://localhost:1337/uploads/Edwar_Aguiar_d7166d44ec.png'
-  // const DEFAULT_IMAGE = 'http://localhost:1337/uploads/art_mobiledesktop_1500x1075_856d5141ca.png'
+  // const IMAGE = BASEURL + data?.aboutme?.data?.attributes?.art?.data?.attributes?.url
+  const IMAGE = data?.aboutme?.data?.attributes?.art?.data?.attributes?.url
 
   return (
     <FrameAboutme>

@@ -8,7 +8,7 @@ import { FrameLOPC } from './styles'
 
 const ALL_PHOTOS_SP = gql`
 query GetAllPhotos {
-  photos(locale: "es-VE") {
+  photos(locale: "es-VE", pagination: {limit: 50}) {
     data {
       id,
       attributes {
@@ -32,7 +32,7 @@ query GetAllPhotos {
 
 const ALL_PHOTOS_EN = gql`
 query GetAllPhotos {
-  photos(locale: "en") {
+  photos(locale: "en", pagination: {limit: 50}) {
     data {
       id,
       attributes {
@@ -58,6 +58,8 @@ export const ListOfPhotoCards = () => {
   const { isSP } = useContext(AppContext)
   const { id } = useParams()
   const { loading, error, data } = isSP ? useQuery(ALL_PHOTOS_SP) : useQuery(ALL_PHOTOS_EN)
+
+  console.log('Lista de Fotos:',data)
 
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>

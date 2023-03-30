@@ -35,8 +35,6 @@ const PhotoDetailsComponent = () => {
     variables: { id: id }
   })
 
-  console.log('Detalle Photo', data)
-
   if (loading) return <p>Loading...!</p>
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
@@ -49,7 +47,7 @@ const PhotoDetailsComponent = () => {
           nlikes={data.photo.data.attributes.nlikes}
           liked={data.photo.data.attributes.liked}
           description={data.photo.data.attributes.description}
-          src={data.photo.data.attributes.src.data.attributes.url}
+          src={data?.photo?.data?.attributes?.src?.data?.attributes?.url}
         />
       </ul>
     </FramePD>
