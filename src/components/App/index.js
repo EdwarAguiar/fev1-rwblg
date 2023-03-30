@@ -6,18 +6,6 @@ import { Logo } from '../../components/Logo'
 import { NavBar } from '../../components/NavBar'
 import { Language } from '../../components/Language'
 
-// import { Homepage } from '../../pages/Homepage'
-// import { Blog } from '../../pages/Blog'
-// import { Category } from '../../pages/Category'
-// import { ArticleDetails } from '../../pages/ArticleDetails'
-// import { Photopage } from '../../pages/Photopage'
-// import { PhotoDetails } from '../../pages/PhotoDetails'
-// import { PhotosBCpage } from '../../pages/PhotosBCpage'
-// import { Favs } from '../../pages/Favs'
-// import { User } from '../../pages/User'
-// import { NotRegisteredUser } from '../../pages/NotregisteredUser'
-// import { Notfound } from '../../pages/Notfound'
-
 const Homepage = React.lazy(() => import('../../pages/Homepage'))
 const Blog = React.lazy(() => import('../../pages/Blog'))
 const Aboutme = React.lazy(() => import('../../pages/Aboutme'))
