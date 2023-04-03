@@ -32,7 +32,8 @@ export const FrameAboutme = styled.div`
   width: 100%;
   max-width: 1200px;
   display: flex;
-  padding-top: 100px;
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 `
 

@@ -5,6 +5,7 @@ import { UserForm } from '../components/UserForm'
 import { useRegisterMutation } from '../hooks/useRegisterMutation'
 import { useLoginMutation } from '../hooks/useLoginMutation'
 import { Frame } from '../styles/styles_nruser'
+import { InfinitySpin } from  'react-loader-spinner'
 
 
 const NotRegisteredUserComponent = () => {

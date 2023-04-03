@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { PhotoCard } from '../PhotoCard'
 import { FrameLOPC } from './styles'
+import { InfinitySpin } from  'react-loader-spinner'
 
 const ALL_PHOTOS_SP = gql`
 query GetAllPhotos {
@@ -61,7 +62,8 @@ export const ListOfPhotoCards = () => {
 
   console.log('Lista de Fotos:',data)
 
-  if (loading) return <p>Loading...!</p>
+  // if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" />
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (

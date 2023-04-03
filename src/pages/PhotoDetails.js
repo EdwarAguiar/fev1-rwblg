@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { PhotoCard } from '../components/PhotoCard'
 import { FramePD } from '../styles/styles_pd'
+import { InfinitySpin } from  'react-loader-spinner'
 
 const PHOTO = gql`
 query GetPhoto($id: ID!) {
@@ -35,7 +36,8 @@ const PhotoDetailsComponent = () => {
     variables: { id: id }
   })
 
-  if (loading) return <p>Loading...!</p>
+  // if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" />
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch'
 import { Title, FilterTitle, Categories, Link, Header } from './styles'
+import { InfinitySpin } from  'react-loader-spinner'
 
 export const SiteHeader = () => {
   // const { loading, error, data } = useFetch('http://localhost:1337/api/categories')
@@ -9,7 +10,8 @@ export const SiteHeader = () => {
 
   // console.log("NIVEL SiteHeader Data", data)
 
-  if (loading) return <p>Loading...!</p>
+  // if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { SiteHeader } from '../components/SiteHeader'
 import { ArticleCard } from '../components/ArticleCard'
+import { InfinitySpin } from  'react-loader-spinner'
 
 const CATEGORY = gql`
 query GetCategory($id: ID!) {
@@ -60,7 +61,8 @@ const Category = () => {
     variables: { id: id }
   })
 
-  if (loading) return <p>Loading...!</p>
+  // if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import { AppContext } from '../context/AppContex'
 import { useQuery, gql } from '@apollo/client'
 import { Helmet } from 'react-helmet'
+import { InfinitySpin } from  'react-loader-spinner'
 import { FrameAboutme, MsgWrapper, Msg1, Msg2, Img, ImgWrapper } from '../styles/styles_aboutme'
 import { config } from '../config/config'
 
@@ -52,11 +53,14 @@ query GetAboutme {
 
 const BASEURL = config.backendUrl
 
+
+
 const AboutmeComponent = () => {
   const { isSP } = useContext(AppContext)
   const { loading, error, data } = isSP ? useQuery(ABOUTME_SP) : useQuery(ABOUTME_EN)
   
-  if (loading) return isSP ? <p>Cargando...!</p> : <p>Loading...!</p>
+  //if (loading) return isSP ? <p>Cargando...!</p> : <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
   if (error) return isSP ? <p>Error - Algo salio mal...!</p> : <p>Oops! Error - Something went wrong!</p>
 
   const SPL1 = data.aboutme.data.attributes.title

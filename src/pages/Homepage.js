@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AppContext } from './../context/AppContex'
 import { useQuery, gql } from '@apollo/client'
 import { Helmet } from 'react-helmet'
+import { InfinitySpin } from  'react-loader-spinner'
 import { FrameHome, MsgWrapper, Msg1, Msg2, Msg3, Msg4, Img, ImgWrapper } from '../styles/styles_home'
 import { config } from '../config/config'
 
@@ -59,7 +60,8 @@ const HomepageComponent = () => {
   const { isSP } = useContext(AppContext)
   const { loading, error, data } = isSP ? useQuery(HOME_SP) : useQuery(HOME_EN)
 
-  if (loading) return isSP ? <p>Cargando...!</p> : <p>Loading...!</p>
+  // if (loading) return isSP ? <p>Cargando...!</p> : <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" />
   if (error) return isSP ? <p>Huy! Error - Algo salio mal...!</p> : <p>Oops! Error - Something went wrong!</p>
 
 

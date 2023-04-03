@@ -3,6 +3,7 @@ import { AppContext } from '../../context/AppContex'
 import { ArticleCard } from '../ArticleCard'
 import { List, Item } from './styles'
 import { useQuery, gql } from '@apollo/client'
+import { InfinitySpin } from  'react-loader-spinner'
 
 const ARTICLES_SP = gql`
 query GetArticles {
@@ -90,7 +91,8 @@ export const ListOfArticles = () => {
   console.log('Articles en SP', isSP)
   const { loading, error, data } = isSP ? useQuery(ARTICLES_SP) : useQuery(ARTICLES_EN)
 
-  if (loading) return <p>Loading...!</p>
+  //if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (

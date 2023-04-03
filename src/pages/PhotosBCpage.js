@@ -5,6 +5,7 @@ import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { PhotoCard } from '../components/PhotoCard'
 import { FramePBCP } from '../styles/styles_bcp'
 import { WhiteGap } from '../components/WhiteGap'
+import { InfinitySpin } from  'react-loader-spinner'
 
 const PHOTO_CATEGORY = gql`
 query GetPhotoCategory($id: ID!) {

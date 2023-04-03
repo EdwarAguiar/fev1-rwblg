@@ -4,6 +4,7 @@ import moment from 'moment'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { SiteHeader } from '../components/SiteHeader'
+import { InfinitySpin } from  'react-loader-spinner'
 import { config } from '../config/config'
 
 import { Link, Article, ButtonWrapper, ArticleButton, Parrafo, ArticleWrapper, RatingCard, Rating, Cat, Image, AutorWrapper } from '../styles/styles_pad'
@@ -67,7 +68,8 @@ const ArticleDetails = () => {
 
   const BASEURL = config.backendUrl
 
-  if (loading) return <p>Loading...!</p>
+  // if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (

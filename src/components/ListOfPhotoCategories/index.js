@@ -4,6 +4,7 @@ import { PhotoCategory } from '../PhotoCategory'
 import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { List, Item } from './styles'
+import { InfinitySpin } from  'react-loader-spinner'
 
 const PHOTO_CATEGORIES_SP = gql`
 query GetPhotoCategories {
@@ -54,7 +55,8 @@ const ListOfPhotoCategoriesComponents = () => {
 
   const { loading, error, data } = isSP ? useQuery(PHOTO_CATEGORIES_SP) : useQuery(PHOTO_CATEGORIES_EN)
 
-  if (loading) return <p>Loading...!</p>
+  // if (loading) return <p>Loading...!</p>
+  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
   if (error) return <p>Oops! Error - Something went wrong!</p>
 
   return (
