@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const history = require('connect-history-api-fallback');
+
 
 const config = {
   output: {
