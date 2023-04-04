@@ -22,6 +22,7 @@ export const FrameHome = styled.div`
  @media all and (min-width: 1200px) {
   width: 100%;
   max-width: 625px;
+  padding-bottom: 60px;
  }
 `
 

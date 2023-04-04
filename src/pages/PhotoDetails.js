@@ -36,6 +36,8 @@ const PhotoDetailsComponent = () => {
     variables: { id: id }
   })
 
+  console.log('La Data',data)
+
   // if (loading) return <p>Loading...!</p>
   if (loading) return <InfinitySpin width="200" color="#004ca4" />
   if (error) return <p>Oops! Error - Something went wrong!</p>

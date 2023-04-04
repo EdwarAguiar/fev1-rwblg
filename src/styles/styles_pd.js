@@ -10,5 +10,6 @@ export const FramePD = styled.div`
  @media all and (min-width: 900px) {
   width: 100%;
   max-width: 800px;
+  padding-bottom: 60px;
 }
 `
