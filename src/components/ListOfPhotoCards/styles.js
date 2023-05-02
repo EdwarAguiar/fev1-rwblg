@@ -22,5 +22,4 @@ export const FrameLOPC = styled.div`
   max-width: 800px;
  }
 
-
 `

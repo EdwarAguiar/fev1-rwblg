@@ -31,13 +31,13 @@ export const App = () => {
           <Route path='/' element={<Homepage />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/aboutme' element={<Aboutme />} />
-          <Route path='/photos' element={<Photopage />} />
-          <Route path='/photodetails/:id' element={<PhotoDetails />} />
-          <Route path='/photocategories/:id' element={<PhotosBCpage />} />
-          <Route path='/details/:id' element={<ArticleDetails />} />
+          <Route path='/photos' element={<Photopage />} />          
+          <Route path='/photocategories/:id' element={<PhotosBCpage />} />          
           <Route path='/category/:id' element={<Category />} />
           {/* <Route path='/favs' element={isAuth ? <Favs /> : <NotRegisteredUser />} /> */}
           <Route path='/user' element={isAuth ? <User /> : <NotRegisteredUser />} />
+          <Route path='/photodetails/:id' element={<PhotoDetails />} />
+          <Route path='/details/:id' element={<ArticleDetails />} />
           <Route path='*' element={<Notfound />} />
         </Routes>
         <NavBar />

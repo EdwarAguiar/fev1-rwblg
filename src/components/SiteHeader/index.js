@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useFetch } from '../../hooks/useFetch'
+import { AppContext } from '../../context/AppContex'
 import { Title, FilterTitle, Categories, Link, Header } from './styles'
 import { InfinitySpin } from  'react-loader-spinner'
 
 export const SiteHeader = () => {
-  // const { loading, error, data } = useFetch('http://localhost:1337/api/categories')
+  const { isSP } = useContext(AppContext)
   const { loading, error, data } = useFetch('https://bev4-strapi.onrender.com/api/categories')
 
+  const filter = isSP ? "Filtrar Artículos por Categoría:" : "Filter Articles by Category:"
 
   // console.log("NIVEL SiteHeader Data", data)
 
@@ -18,7 +20,7 @@ export const SiteHeader = () => {
     <Header>
       <Link to='/'><Title>TIRAMUTO Blog</Title></Link>
       <FilterTitle>
-        <span>Filter Articles by Categroy:</span>
+        <span>{filter}</span>
       </FilterTitle>
       <Categories>
         {data.data.map(category => (

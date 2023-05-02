@@ -6,6 +6,7 @@ import { useQuery, gql } from '@apollo/client'
 import { PhotoCard } from '../PhotoCard'
 import { FrameLOPC } from './styles'
 import { InfinitySpin } from  'react-loader-spinner'
+import { likedValidation } from '../../hooks/useLikeValidation'
 
 const ALL_PHOTOS_SP = gql`
 query GetAllPhotos {
@@ -22,6 +23,14 @@ query GetAllPhotos {
             attributes {
               name,
               url
+            }
+          }
+        },
+        usrliked {
+          data {
+            id,
+            attributes {
+              username
             }
           }
         }
@@ -48,6 +57,14 @@ query GetAllPhotos {
               url
             }
           }
+        },
+        usrliked {
+          data {
+            id,
+            attributes {
+              username
+            }
+          }
         }
       }
     }
@@ -56,29 +73,26 @@ query GetAllPhotos {
 `
 
 export const ListOfPhotoCards = () => {
-  const { isSP } = useContext(AppContext)
+  const { isSP, loggedUser } = useContext(AppContext)
   const { id } = useParams()
   const { loading, error, data } = isSP ? useQuery(ALL_PHOTOS_SP) : useQuery(ALL_PHOTOS_EN)
 
-  console.log('Lista de Fotos:',data)
-
-  // if (loading) return <p>Loading...!</p>
-  if (loading) return <InfinitySpin width="200" color="#004ca4" />
-  if (error) return <p>Oops! Error - Something went wrong!</p>
+  if (loading) return <InfinitySpin width='200' color='#004ca4' />
+  if (error) return isSP ? <p>¡Ups! Error -¡Algo salió mal!</p> : <p>Oops! Error - Something went wrong!</p>
 
   return (
     <FrameLOPC>
       <ul>
         {
-          // [1, 2, 3, 4, 5].map(id => <PhotoCard key={id} />)
           data.photos.data.map((photo) => (
             <li key={photo.id}>
               <PhotoCard
                 id={photo.id}
-                nlikes={photo.attributes.nlikes}
-                liked={photo.attributes.liked}
+                nlikes={photo.attributes.usrliked.data.length}
+                liked={likedValidation(loggedUser, photo.attributes.usrliked.data)}
                 description={photo.attributes.description}
                 src={photo.attributes.src.data.attributes.url}
+                likedList={photo.attributes.usrliked.data}
               />
             </li>
           ))

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import jwt_decode from 'jwt-decode'
 import { Helmet } from 'react-helmet'
 import { AppContext } from '../context/AppContex'
 import { UserForm } from '../components/UserForm'
@@ -9,7 +10,7 @@ import { InfinitySpin } from  'react-loader-spinner'
 
 
 const NotRegisteredUserComponent = () => {
-  const { isSP } = useContext(AppContext)
+  const { isSP, loggedUser, registerLgUser, registerLgUserID } = useContext(AppContext)
   const { registerMutation, data: dataReg, loading: loadingReg, error: errorReg } = useRegisterMutation()
   const { loginMutation, data: dataLog, loading: loadingLog, error: errorLog } = useLoginMutation()
 
@@ -31,17 +32,23 @@ const NotRegisteredUserComponent = () => {
              const username = email.substring(0, email.indexOf('@'))
              const variables = ({ username, email, password })
              registerMutation({ variables }).then(({ data }) => {
-               console.log(data.register.jwt)
                const { register: { jwt } } = data
+               const decode = jwt_decode(jwt)
                activateAuth(jwt)
+               registerLgUser(username)
+               registerLgUserID(decode.id)
              })
            }
 
            const onSubmitLog = ({ email, password }) => {
              const variables = ({ email, password })
              loginMutation({ variables }).then(({ data }) => {
+                const username = email.substring(0, email.indexOf('@'))
                const { login: { jwt } } = data
+               const decode = jwt_decode(jwt)
                activateAuth(jwt)
+               registerLgUser(username)
+               registerLgUserID(decode.id)
              })
            }
 

@@ -102,7 +102,6 @@ export const ListOfArticles = () => {
           <ArticleCard
             id={art.id}
             title={art.attributes.title}
-            // rating={art.attributes.rating}
             rating={art.id}
             body={art.attributes.body}
             picture={art.attributes.image_n1.data.attributes.url}

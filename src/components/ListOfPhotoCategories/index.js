@@ -55,9 +55,8 @@ const ListOfPhotoCategoriesComponents = () => {
 
   const { loading, error, data } = isSP ? useQuery(PHOTO_CATEGORIES_SP) : useQuery(PHOTO_CATEGORIES_EN)
 
-  // if (loading) return <p>Loading...!</p>
-  if (loading) return <InfinitySpin width="200" color="#004ca4" /> 
-  if (error) return <p>Oops! Error - Something went wrong!</p>
+  if (loading) return <InfinitySpin width='200' color='#004ca4' /> 
+  if (error) return isSP ? <p>¡Ups! Error -¡Algo salió mal!</p> : <p>Oops! Error - Something went wrong!</p>
 
   return (
     <List>

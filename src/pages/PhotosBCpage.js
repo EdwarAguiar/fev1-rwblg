@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { AppContext } from '../context/AppContex'
 import { useQuery, gql } from '@apollo/client'
+import { likedValidation } from '../hooks/useLikeValidation'
 import { ListOfPhotoCategories } from '../components/ListOfPhotoCategories'
 import { PhotoCard } from '../components/PhotoCard'
 import { FramePBCP } from '../styles/styles_bcp'
@@ -38,6 +40,14 @@ query GetPhotoCategory($id: ID!) {
                     url
                   }
                 }
+              },
+              usrliked {
+                data {
+                  id,
+                  attributes {
+                    username
+                  }
+                }
               }
             }
           }
@@ -50,13 +60,14 @@ query GetPhotoCategory($id: ID!) {
 
 const PhotosBCpageComponent = () => {
   const { id } = useParams()
+  const { isSP, loggedUser } = useContext(AppContext)
+
   const { loading, error, data } = useQuery(PHOTO_CATEGORY, {
     variables: { id: id }
   })
 
-  // if (loading) return <p>Loading...!</p>
-  if (loading) return <InfinitySpin width="200" color="#004ca4" />
-  if (error) return <p>Oops! Error - Something went wrong!</p>
+  if (loading) return <InfinitySpin width='200' color='#004ca4' />
+  if (error) return isSP ? <p>¡Ups! Error -¡Algo salió mal!</p> : <p>Oops! Error - Something went wrong!</p>
 
   return (
     <FramePBCP>
@@ -67,10 +78,11 @@ const PhotosBCpageComponent = () => {
             <li key={photo.id}>
               <PhotoCard
                 id={photo.id}
-                nlikes={photo.attributes.nlikes}
-                liked={photo.attributes.liked}
+                nlikes={photo.attributes.usrliked.data.length}
+                liked={likedValidation(loggedUser, photo.attributes.usrliked.data)}
                 description={photo.attributes.description}
                 src={photo.attributes.src.data.attributes.url}
+                likedList={photo.attributes.usrliked.data}
               />
             </li>
           ))

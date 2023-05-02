@@ -1,19 +1,25 @@
 import React, { createContext, useState } from 'react'
-// import { useApolloClient } from '@apollo/client'
+
 const AppContext = createContext(null)
 
 const AppProvider = (props) => {
   const [isAuth, setIsAuth] = useState(() => {
     return window.sessionStorage.getItem('token')
   })
+  const [loggedUser, setLoggedUser] = useState(() => {
+    return window.sessionStorage.getItem('username')
+  })
+  const [loggedUserID, setLoggedUserID] = useState(() => {
+    return window.sessionStorage.getItem('userID')
+  })
+
 
   const [isSP, setIsSP] = useState(true)
-  const [module, setModule] = useState('home')
+  const [module, setModule] = useState('home') 
 
   const activateSP = () => setIsSP(true)
   const activateEN = () => setIsSP(false)
 
-  // const client = useApolloClient()
   const activateAuth = () => setIsAuth(true)
   const removeAuth = () => setIsAuth(false)
 
@@ -24,15 +30,27 @@ const AppProvider = (props) => {
       window.sessionStorage.setItem('token', token)
     },
     removeAuth: () => {
-      //console.log('Cerrando Session')
       setIsAuth(false)
       window.sessionStorage.removeItem('token')
+      window.sessionStorage.removeItem('username')
+      window.sessionStorage.removeItem('userID')
+    },
+    registerLgUser: (username) => {
+      window.sessionStorage.setItem('username', username)
+      setLoggedUser(username)
+
+    },
+    registerLgUserID: (ID) => {
+      window.sessionStorage.setItem('userID', ID)
+      setLoggedUserID(ID)
     },
     isSP,
     activateSP,
     activateEN,
     module,
-    setModule
+    setModule,
+    loggedUser,
+    loggedUserID
   }
 
   return (

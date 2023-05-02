@@ -4,7 +4,7 @@ import { SubmitButton } from '../components/SubmitButton'
 import { Frame, Msg } from '../styles/styles_user'
 
 const User = () => {
-  const { removeAuth, isSP, setModule } = useContext(AppContext)
+  const { removeAuth, isSP, setModule, loggedUser } = useContext(AppContext)
   setModule('user')
   const L1 = isSP ? 'Perfil del Usuario' : 'User Profile'
   const L2 = isSP ? 'Brilla, brilla intensamente' : 'Shine, shine bright'
@@ -15,6 +15,7 @@ const User = () => {
   return (
     <Frame>
       <h1>{L1}</h1>
+      <h3>[ {loggedUser} ]</h3>
       <Msg>
         <p>{L2} </p>
         <p>{L3} </p>
